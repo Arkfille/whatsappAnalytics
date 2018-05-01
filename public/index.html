@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>WhatAppData</title>
+</head>
+
+<body ng-app="WhatsAppData">
+    <div ng-controller="numbers as ctrl">
+        <div layout="row" class="row center">
+            <h2> Totalt Antal Meddelanden: {{totalMessages}} </h2>
+        </div>
+        <div layout="row" layout-xs="column" class="row">
+            <md-card flex-md="50" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Antal Meddelanden per person </h3>
+                    <div class="chart" id="messageChart">
+                        <svg></svg>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex-md="50" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Antal Bilder/Videor per person </h3>
+                    <div class="chart" id="mediaChart">
+                        <svg></svg>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div layout="row" layout-xs="column" class="row">
+            <md-card flex-md="50" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Antal ord per person </h3>
+                    <div class="chart" id="wordCount">
+                        <svg></svg>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex-md="50" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Topp elva ord per person <span style="font-size: 16px"> (de 20 vanligaste svenska orden är bortfiltrerade) </span> </h3>
+                    <div  layout="row">
+                        <div flex ng-repeat="topWords in topTenWordsList">
+                            <h5 ng-class="topWords.name" >{{topWords.name}}</h5>
+                            <ul>
+                                <li ng-repeat="words in topWords.data">
+                                    {{words[0]}} : {{words[1]}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div layout="row" layout-xs="column" class="row">
+            <md-card flex-md="100" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Meddelanden per dag på året och person </h3>
+                    <div class="chart" id="dateMsg">
+                        <svg></svg>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div layout="row" layout-xs="column" class="row">
+            <md-card flex-md="100" flex-xs="100" class="md-card">
+                <md-card-content>
+                    <h3 style="display: inline-block"> Meddelanden per veckodag och person </h3>
+                    <div class="chart" id="weekdayAverage">
+                        <svg></svg>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>
+        <script src="client.js"></script>
+</body>
+
+</html>

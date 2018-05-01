@@ -1,0 +1,58 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.md-card {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+}
+
+.chart {
+    height: 400px;
+}
+
+.center {
+    justify-content: center;
+}
+
+md-card {
+    text-align: center
+}
+
+.Carro {
+    color: #aec7e8
+}
+.Rickard {
+    color: #5799c7
+}
+.Robin {
+    color:#ff9f4a
+}
+.Filip{
+    color:#ffcc9a
+}
+.Stephan{
+    color:#af8dce
+}
+.Elin{
+    color:#d4c4e0
+}
+.Jimmy{
+    color:#b2e7a7
+}
+.Albin{
+    color:#f8aba9
+}
+.Mats{
+    color:#61b861
+}
+.Helena{
+    color:#e05d5e
+}
+
+ul{
+    left: -16px;
+    list-style: none;
+    position: relative;
+}
